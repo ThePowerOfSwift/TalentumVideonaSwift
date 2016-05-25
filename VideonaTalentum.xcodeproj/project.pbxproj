@@ -1,0 +1,436 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB77C2D41CF5F687000E0521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2D31CF5F687000E0521 /* AppDelegate.swift */; };
+		FB77C2D61CF5F687000E0521 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2D51CF5F687000E0521 /* ViewController.swift */; };
+		FB77C2D91CF5F687000E0521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77C2D71CF5F687000E0521 /* Main.storyboard */; };
+		FB77C2DB1CF5F687000E0521 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB77C2DA1CF5F687000E0521 /* Assets.xcassets */; };
+		FB77C2DE1CF5F687000E0521 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77C2DC1CF5F687000E0521 /* LaunchScreen.storyboard */; };
+		FB77C2E91CF5F688000E0521 /* VideonaTalentumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2E81CF5F688000E0521 /* VideonaTalentumTests.swift */; };
+		FB77C2F71CF5F752000E0521 /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2F51CF5F752000E0521 /* ActionButton.swift */; };
+		FB77C2F81CF5F752000E0521 /* ActionButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2F61CF5F752000E0521 /* ActionButtonItem.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB77C2E51CF5F688000E0521 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB77C2C81CF5F687000E0521 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB77C2CF1CF5F687000E0521;
+			remoteInfo = VideonaTalentum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB77C2D01CF5F687000E0521 /* VideonaTalentum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideonaTalentum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB77C2D31CF5F687000E0521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB77C2D51CF5F687000E0521 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FB77C2D81CF5F687000E0521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB77C2DA1CF5F687000E0521 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB77C2DD1CF5F687000E0521 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB77C2DF1CF5F687000E0521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB77C2E41CF5F688000E0521 /* VideonaTalentumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VideonaTalentumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB77C2E81CF5F688000E0521 /* VideonaTalentumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideonaTalentumTests.swift; sourceTree = "<group>"; };
+		FB77C2EA1CF5F688000E0521 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB77C2F51CF5F752000E0521 /* ActionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionButton.swift; path = Libraries/ActionButton/ActionButton.swift; sourceTree = "<group>"; };
+		FB77C2F61CF5F752000E0521 /* ActionButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ActionButtonItem.swift; path = Libraries/ActionButton/ActionButtonItem.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB77C2CD1CF5F687000E0521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB77C2E11CF5F688000E0521 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB77C2C71CF5F687000E0521 = {
+			isa = PBXGroup;
+			children = (
+				FB77C2D21CF5F687000E0521 /* VideonaTalentum */,
+				FB77C2E71CF5F688000E0521 /* VideonaTalentumTests */,
+				FB77C2D11CF5F687000E0521 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB77C2D11CF5F687000E0521 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB77C2D01CF5F687000E0521 /* VideonaTalentum.app */,
+				FB77C2E41CF5F688000E0521 /* VideonaTalentumTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB77C2D21CF5F687000E0521 /* VideonaTalentum */ = {
+			isa = PBXGroup;
+			children = (
+				FB77C2F41CF5F730000E0521 /* Libraries */,
+				FB77C2D31CF5F687000E0521 /* AppDelegate.swift */,
+				FB77C2D51CF5F687000E0521 /* ViewController.swift */,
+				FB77C2D71CF5F687000E0521 /* Main.storyboard */,
+				FB77C2DA1CF5F687000E0521 /* Assets.xcassets */,
+				FB77C2DC1CF5F687000E0521 /* LaunchScreen.storyboard */,
+				FB77C2DF1CF5F687000E0521 /* Info.plist */,
+			);
+			path = VideonaTalentum;
+			sourceTree = "<group>";
+		};
+		FB77C2E71CF5F688000E0521 /* VideonaTalentumTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB77C2E81CF5F688000E0521 /* VideonaTalentumTests.swift */,
+				FB77C2EA1CF5F688000E0521 /* Info.plist */,
+			);
+			path = VideonaTalentumTests;
+			sourceTree = "<group>";
+		};
+		FB77C2F31CF5F727000E0521 /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				FB77C2F51CF5F752000E0521 /* ActionButton.swift */,
+				FB77C2F61CF5F752000E0521 /* ActionButtonItem.swift */,
+			);
+			name = ActionButton;
+			sourceTree = "<group>";
+		};
+		FB77C2F41CF5F730000E0521 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				FB77C2F31CF5F727000E0521 /* ActionButton */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB77C2CF1CF5F687000E0521 /* VideonaTalentum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB77C2ED1CF5F688000E0521 /* Build configuration list for PBXNativeTarget "VideonaTalentum" */;
+			buildPhases = (
+				FB77C2CC1CF5F687000E0521 /* Sources */,
+				FB77C2CD1CF5F687000E0521 /* Frameworks */,
+				FB77C2CE1CF5F687000E0521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = VideonaTalentum;
+			productName = VideonaTalentum;
+			productReference = FB77C2D01CF5F687000E0521 /* VideonaTalentum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB77C2E31CF5F688000E0521 /* VideonaTalentumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB77C2F01CF5F688000E0521 /* Build configuration list for PBXNativeTarget "VideonaTalentumTests" */;
+			buildPhases = (
+				FB77C2E01CF5F688000E0521 /* Sources */,
+				FB77C2E11CF5F688000E0521 /* Frameworks */,
+				FB77C2E21CF5F688000E0521 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB77C2E61CF5F688000E0521 /* PBXTargetDependency */,
+			);
+			name = VideonaTalentumTests;
+			productName = VideonaTalentumTests;
+			productReference = FB77C2E41CF5F688000E0521 /* VideonaTalentumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB77C2C81CF5F687000E0521 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Alumno;
+				TargetAttributes = {
+					FB77C2CF1CF5F687000E0521 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 9TBZLQERGP;
+					};
+					FB77C2E31CF5F688000E0521 = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = FB77C2CF1CF5F687000E0521;
+					};
+				};
+			};
+			buildConfigurationList = FB77C2CB1CF5F687000E0521 /* Build configuration list for PBXProject "VideonaTalentum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB77C2C71CF5F687000E0521;
+			productRefGroup = FB77C2D11CF5F687000E0521 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB77C2CF1CF5F687000E0521 /* VideonaTalentum */,
+				FB77C2E31CF5F688000E0521 /* VideonaTalentumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB77C2CE1CF5F687000E0521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB77C2DE1CF5F687000E0521 /* LaunchScreen.storyboard in Resources */,
+				FB77C2DB1CF5F687000E0521 /* Assets.xcassets in Resources */,
+				FB77C2D91CF5F687000E0521 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB77C2E21CF5F688000E0521 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB77C2CC1CF5F687000E0521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB77C2D61CF5F687000E0521 /* ViewController.swift in Sources */,
+				FB77C2D41CF5F687000E0521 /* AppDelegate.swift in Sources */,
+				FB77C2F81CF5F752000E0521 /* ActionButtonItem.swift in Sources */,
+				FB77C2F71CF5F752000E0521 /* ActionButton.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB77C2E01CF5F688000E0521 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB77C2E91CF5F688000E0521 /* VideonaTalentumTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB77C2E61CF5F688000E0521 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB77C2CF1CF5F687000E0521 /* VideonaTalentum */;
+			targetProxy = FB77C2E51CF5F688000E0521 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB77C2D71CF5F687000E0521 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB77C2D81CF5F687000E0521 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB77C2DC1CF5F687000E0521 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB77C2DD1CF5F687000E0521 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB77C2EB1CF5F688000E0521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB77C2EC1CF5F688000E0521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB77C2EE1CF5F688000E0521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = VideonaTalentum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		FB77C2EF1CF5F688000E0521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = VideonaTalentum/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		FB77C2F11CF5F688000E0521 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VideonaTalentumTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alumno.app.VideonaTalentumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideonaTalentum.app/VideonaTalentum";
+			};
+			name = Debug;
+		};
+		FB77C2F21CF5F688000E0521 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = VideonaTalentumTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.alumno.app.VideonaTalentumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VideonaTalentum.app/VideonaTalentum";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB77C2CB1CF5F687000E0521 /* Build configuration list for PBXProject "VideonaTalentum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB77C2EB1CF5F688000E0521 /* Debug */,
+				FB77C2EC1CF5F688000E0521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB77C2ED1CF5F688000E0521 /* Build configuration list for PBXNativeTarget "VideonaTalentum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB77C2EE1CF5F688000E0521 /* Debug */,
+				FB77C2EF1CF5F688000E0521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB77C2F01CF5F688000E0521 /* Build configuration list for PBXNativeTarget "VideonaTalentumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB77C2F11CF5F688000E0521 /* Debug */,
+				FB77C2F21CF5F688000E0521 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB77C2C81CF5F687000E0521 /* Project object */;
+}
