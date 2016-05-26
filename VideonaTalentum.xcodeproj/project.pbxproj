@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB07E4611CF6F5D8000A7A6F /* eyeball.png in Resources */ = {isa = PBXBuildFile; fileRef = FB07E4601CF6F5D8000A7A6F /* eyeball.png */; };
 		FB77C2D41CF5F687000E0521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2D31CF5F687000E0521 /* AppDelegate.swift */; };
 		FB77C2D61CF5F687000E0521 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77C2D51CF5F687000E0521 /* ViewController.swift */; };
 		FB77C2D91CF5F687000E0521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB77C2D71CF5F687000E0521 /* Main.storyboard */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FB07E4601CF6F5D8000A7A6F /* eyeball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = eyeball.png; path = Assets.xcassets/eyeball.imageset/eyeball.png; sourceTree = "<group>"; };
 		FB77C2D01CF5F687000E0521 /* VideonaTalentum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideonaTalentum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB77C2D31CF5F687000E0521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB77C2D51CF5F687000E0521 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		FB77C2D21CF5F687000E0521 /* VideonaTalentum */ = {
 			isa = PBXGroup;
 			children = (
+				FB07E4601CF6F5D8000A7A6F /* eyeball.png */,
 				FB77C2F41CF5F730000E0521 /* Libraries */,
 				FB77C2D31CF5F687000E0521 /* AppDelegate.swift */,
 				FB77C2D51CF5F687000E0521 /* ViewController.swift */,
@@ -200,6 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB07E4611CF6F5D8000A7A6F /* eyeball.png in Resources */,
 				FB77C2DE1CF5F687000E0521 /* LaunchScreen.storyboard in Resources */,
 				FB77C2DB1CF5F687000E0521 /* Assets.xcassets in Resources */,
 				FB77C2D91CF5F687000E0521 /* Main.storyboard in Resources */,
