@@ -171,7 +171,7 @@
 				TargetAttributes = {
 					FB77C2CF1CF5F687000E0521 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 9TBZLQERGP;
+						DevelopmentTeam = R8T7F8G4AR;
 					};
 					FB77C2E31CF5F688000E0521 = {
 						CreatedOnToolsVersion = 7.3;
@@ -360,7 +360,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideonaTalentum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -374,7 +374,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = VideonaTalentum/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.videona.VideonaTalentum11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
