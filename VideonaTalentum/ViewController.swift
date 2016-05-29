@@ -49,6 +49,8 @@ class ViewController: UIViewController {
     var isHat = false
     var isMoustache = false
 
+    var cameraFront = true
+    var cameraBack = false
     
     let eaglContext = EAGLContext(API: .OpenGLES2)
     let captureSession = AVCaptureSession()
@@ -98,7 +100,7 @@ class ViewController: UIViewController {
         view.addSubview(imageView)
         imageView.context = eaglContext
         imageView.delegate = self
-        
+ 
         
         initialiseCaptureSession()
         
@@ -155,9 +157,11 @@ class ViewController: UIViewController {
         
         actionButton.backgroundColor = UIColor(red: 167.0/255.0, green: 169.0/255.0, blue: 173.0/255.0, alpha:0.8)
         
+        
+        
+        //self.view.bringSubviewToFront(imageView)
         self.view.bringSubviewToFront(Camera)
         self.view.bringSubviewToFront(recordPlay)
-        self.view.bringSubviewToFront(imageView)
         
     }
     
@@ -198,11 +202,11 @@ class ViewController: UIViewController {
         }
         
         
-    
+    /*
         previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         self.view.layer.addSublayer(previewLayer!)
-        previewLayer?.frame=self.view.layer.frame
-        
+        previewLayer?.frame=self.view.layer.frame*/
+ 
         
         captureSession.startRunning()
     }
@@ -233,10 +237,14 @@ class ViewController: UIViewController {
             switch position {
             case .Front:
                 videoDevice = ViewController.deviceWithMediaType(.Back)
+                cameraBack=true
+                cameraFront=false
                 
                 break;
             case .Back:
                 videoDevice = ViewController.deviceWithMediaType(.Front)
+                cameraFront=true
+                cameraBack=false
                 break;
                 
             case .Unspecified :
@@ -323,37 +331,37 @@ class ViewController: UIViewController {
         
             if(isEyes){
             
-            let halfEyeWidth = eyeballImage.extent.width / 2
-            let halfEyeHeight = eyeballImage.extent.height / 2
+                let halfEyeWidth = eyeballImage.extent.width / 2
+                let halfEyeHeight = eyeballImage.extent.height / 2
             
             
                 
-            let rightEyePosition = CGAffineTransformMakeTranslation(newFeature!.rightEyePosition.x - halfEyeWidth, newFeature!.rightEyePosition.y - halfEyeHeight)
+                let rightEyePosition = CGAffineTransformMakeTranslation(newFeature!.rightEyePosition.x - halfEyeWidth, newFeature!.rightEyePosition.y - halfEyeHeight)
                 
-            let leftEyePosition = CGAffineTransformMakeTranslation(newFeature!.leftEyePosition.x - halfEyeWidth, newFeature!.leftEyePosition.y - halfEyeHeight)
+                let leftEyePosition = CGAffineTransformMakeTranslation(newFeature!.leftEyePosition.x - halfEyeWidth, newFeature!.leftEyePosition.y - halfEyeHeight)
                 
-            transformFilter.setValue(eyeballImage, forKey: "inputImage")
-            transformFilter.setValue(NSValue(CGAffineTransform: rightEyePosition), forKey: "inputTransform")
+                transformFilter.setValue(eyeballImage, forKey: "inputImage")
+                transformFilter.setValue(NSValue(CGAffineTransform: rightEyePosition), forKey: "inputTransform")
                 
                 
-            transformFilter1.setValue(eyeballImage, forKey: "inputImage")
-            transformFilter1.setValue(NSValue(CGAffineTransform: leftEyePosition), forKey: "inputTransform")
+                transformFilter1.setValue(eyeballImage, forKey: "inputImage")
+                transformFilter1.setValue(NSValue(CGAffineTransform: leftEyePosition), forKey: "inputTransform")
                 
-            let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
+                let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
             
-            let transformResult1 = transformFilter1.valueForKey("outputImage") as! CIImage
+                let transformResult1 = transformFilter1.valueForKey("outputImage") as! CIImage
                 
                 
-            compositingFilter.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
-            compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
+                compositingFilter.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
+                compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
                 
-            finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
+                finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
                 
 
-            compositingFilter1.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
-            compositingFilter1.setValue(transformResult1, forKey: kCIInputImageKey)
+                compositingFilter1.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
+                compositingFilter1.setValue(transformResult1, forKey: kCIInputImageKey)
                 
-            finalImage = compositingFilter1.valueForKey("outputImage") as! CIImage
+                finalImage = compositingFilter1.valueForKey("outputImage") as! CIImage
             
             }
             if(isHat){
@@ -361,12 +369,35 @@ class ViewController: UIViewController {
                 let halfHatWidth = hatBallImage.extent.width / 2
                 let halfHatHeight = hatBallImage.extent.height / 2
                 
+                let scale = newFeature!.bounds.width/hatBallImage.extent.width
+            
+                var offsetY = CGFloat(0)
+                var offsetX = CGFloat(0)
                 
+                let myCGFloat = CGFloat(newFeature!.faceAngle)
+                let myPIFloat = CGFloat(2*M_PI)
+                let hatAngleRadians = myCGFloat*myPIFloat / 360
                 
-                let hatPosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfHatWidth, newFeature!.bounds.maxY - halfHatHeight)
+                let hatAngle = CGAffineTransformMakeRotation(-hatAngleRadians)
+                
+                if(-hatAngleRadians>0){
+                    offsetY = sin(hatAngleRadians) * hatBallImage.extent.height
+                    offsetX = sin(hatAngleRadians) * hatBallImage.extent.width
+                }else{
+                    offsetY = -1 * sin(hatAngleRadians) * hatBallImage.extent.height
+                    offsetX = -1 * sin(hatAngleRadians) * hatBallImage.extent.width
+                }
+                print(offsetY)
+                
+                print(offsetX)
+                
+                let hatPosition = CGAffineTransformTranslate(hatAngle, newFeature!.bounds.midX - halfHatWidth + offsetX, newFeature!.bounds.maxY + halfHatHeight + offsetY)
+                
 
+                let hatScaledPosition = CGAffineTransformScale(hatPosition, scale,2)
+                
                 transformFilter.setValue(hatBallImage, forKey: "inputImage")
-                transformFilter.setValue(NSValue(CGAffineTransform: hatPosition), forKey: "inputTransform")
+                transformFilter.setValue(NSValue(CGAffineTransform: hatScaledPosition), forKey: "inputTransform")
                 
                 
                 let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
@@ -380,15 +411,26 @@ class ViewController: UIViewController {
             }
             if(isMoustache){
                 
-                let halfMoustacheWidth = moustacheImage2.extent.width / 2
-                let halfMoustacheHeight = moustacheImage2.extent.height / 2
+                
+                let halfMoustacheWidth = moustacheImage2.extent.width / 7.5
+                let halfMoustacheheight = moustacheImage2.extent.height / 15
                 
                 
+                let moustachePosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfMoustacheWidth, newFeature!.mouthPosition.y - halfMoustacheheight)
                 
-                let moustachePosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfMoustacheWidth, newFeature!.bounds.minY - halfMoustacheHeight)
+                let moustacheScaledPosition = CGAffineTransformScale(moustachePosition, 0.3,0.3)
+                
+                
+                let myCGFloat = CGFloat(newFeature!.faceAngle)
+                let myPIFloat = CGFloat(2*M_PI)
+                let angleRadians = myCGFloat*myPIFloat / 360
+                let moustacheAngle = CGAffineTransformRotate(moustacheScaledPosition, -angleRadians)
+
+                
                 
                 transformFilter.setValue(moustacheImage2, forKey: "inputImage")
-                transformFilter.setValue(NSValue(CGAffineTransform: moustachePosition), forKey: "inputTransform")
+                transformFilter.setValue(NSValue(CGAffineTransform: moustacheAngle), forKey: "inputTransform")
+                
                 
                 
                 let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
@@ -413,48 +455,79 @@ class ViewController: UIViewController {
     
     func noneImag2(cameraImage: CIImage, backgroundImage: CIImage, features : [CIFeature])->CIImage {
     
-    var finalImage = CIImage()
-    
-    let compositingFilter = CIFilter(name: "CISourceAtopCompositing")!
-    let transformFilter = CIFilter(name: "CIAffineTransform")!
-    if(features.count == 0)
-    {
-        return finalImage
-    }
-    
-    for feature in features{
-    let newFeature = feature as? CIFaceFeature
+        var image = CIImage()
+        let compositingFilter = CIFilter(name: "CISourceAtopCompositing")!
+        let transformFilter = CIFilter(name: "CIAffineTransform")!
+        let alphaFilter = CIFilter(name: "CIColorMatrix")!
         
-        if(isHat){
-            
-            let halfHatWidth = hatBallImage.extent.width / 2
-            let halfHatHeight = hatBallImage.extent.height / 2
-            
-            
-            
-            let hatPosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfHatWidth, newFeature!.bounds.maxY - halfHatHeight)
-            
-            transformFilter.setValue(hatBallImage, forKey: "inputImage")
-            transformFilter.setValue(NSValue(CGAffineTransform: hatPosition), forKey: "inputTransform")
-            
-            
-            let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
-            
-            compositingFilter.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
-            compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
-            
-            finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
+        let floatArr : [CGFloat] = [0,0,0,0]
+        let vector = CIVector(values: floatArr, count: floatArr.count)
+        
+        alphaFilter.setDefaults()
+        alphaFilter.setValue(cameraImage, forKey: kCIInputImageKey)
+        
+        alphaFilter.setValue(vector, forKey: "inputAVector")
+        
+        image = alphaFilter.valueForKey("outputImage") as! CIImage
+        
+        
+        for feature in features{
+            let newFeature = feature as? CIFaceFeature
+        
+        
+            let halfMoustacheWidth = moustacheImage2.extent.width / 2
+            let halfMoustacheHeight = moustacheImage2.extent.height / 2
             
             
-        }
+            
+            let moustachePosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfMoustacheWidth, newFeature!.bounds.minY - halfMoustacheHeight)
+            
+             let mouthDimensions = CGAffineTransformScale(moustachePosition, 0.2,0.2)
+            
+            
+        
+        transformFilter.setValue(moustacheImage2, forKey: "inputImage")
+        transformFilter.setValue(NSValue(CGAffineTransform: mouthDimensions), forKey: "inputTransform")
+        
+        
+        let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
+        
+        compositingFilter.setValue(image, forKey: kCIInputBackgroundImageKey)
+        compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
+        
+        return compositingFilter.valueForKey("outputImage") as! CIImage
 
-    
-    
-    }
-    
-    return finalImage
-    
-    
+        }
+        return image
+        
+   /*             let rightEyePosition = CGAffineTransformMakeTranslation(newFeature!.rightEyePosition.x - halfEyeWidth, newFeature!.rightEyePosition.y - halfEyeHeight)
+                
+                let leftEyePosition = CGAffineTransformMakeTranslation(newFeature!.leftEyePosition.x - halfEyeWidth, newFeature!.leftEyePosition.y - halfEyeHeight)
+                
+                transformFilter.setValue(eyeballImage, forKey: "inputImage")
+                transformFilter.setValue(NSValue(CGAffineTransform: rightEyePosition), forKey: "inputTransform")
+
+                
+                let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
+                
+                let transformResult1 = transformFilter1.valueForKey("outputImage") as! CIImage
+                
+                
+                compositingFilter.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
+                compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
+                
+                finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
+                
+                
+                compositingFilter1.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
+                compositingFilter1.setValue(transformResult1, forKey: kCIInputImageKey)
+                
+                finalImage = compositingFilter1.valueForKey("outputImage") as! CIImage
+
+        */
+  
+        
+        
     }
 
     
@@ -539,7 +612,7 @@ class ViewController: UIViewController {
  */
     
     override func viewDidLayoutSubviews() {
-        imageView.bounds=view.bounds
+        imageView.frame = view.bounds
     }
 }
 
@@ -548,8 +621,12 @@ extension ViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!) {
         
 
-        connection.videoMirrored = true
-        
+        if(cameraFront){
+            connection.videoMirrored = true
+        }
+        else{
+            connection.videoMirrored = false
+        }
         connection.videoOrientation = AVCaptureVideoOrientation(rawValue: UIApplication.sharedApplication().statusBarOrientation.rawValue)!
         
         let pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer)
@@ -573,62 +650,20 @@ extension ViewController: GLKViewDelegate {
             return
         }
         
-        
+
         
         let features : [CIFeature] = detectFaces(cameraImage)
         
-        //let noImage = noneImag2(cameraImage, backgroundImage: cameraImage, features: features)
+        let noImage = noneImage(cameraImage, backgroundImage: cameraImage,features: features)
         
+        ciContext.drawImage(noImage,
+                            inRect: CGRect(x: 0, y: 0,
+                                width: imageView.drawableWidth,
+                                height: imageView.drawableHeight),
+                            fromRect: noImage.extent)
         
-        /*
-      
-        switch enumNull {
-            
-        case Enum.EnumFace:
-            
-            let noImage = noneImage(cameraImage, backgroundImage: cameraImage, mouth: true)
-            
-            ciContext.drawImage(noImage,
-                                inRect: CGRect(x: 0, y: 0,
-                                    width: imageView.drawableWidth,
-                                    height: imageView.drawableHeight),
-                                fromRect: noImage.extent)
-        case Enum.EnumEyes:
-            
-            let leftEyeImage = eyeImage(cameraImage, backgroundImage: cameraImage, leftEye: true)
-            let rightEyeImage = eyeImage(cameraImage, backgroundImage: leftEyeImage, leftEye: false)
-            
-            ciContext.drawImage(rightEyeImage,
-                                inRect: CGRect(x: 0, y: 0,
-                                    width: imageView.drawableWidth,
-                                    height: imageView.drawableHeight),
-                                fromRect: rightEyeImage.extent)
-            
-        case Enum.EnumMouth:
-            
-            
-            let mImage = mouthImage(cameraImage, backgroundImage: cameraImage, mouth: true)
-            
-            ciContext.drawImage(mImage,
-                                inRect: CGRect(x: 0, y: 0,
-                                    width: imageView.drawableWidth,
-                                    height: imageView.drawableHeight),
-                                fromRect: mImage.extent)
-            
-        case Enum.EnumHat:
-            
-            let hattImage = hatImage(cameraImage, backgroundImage: cameraImage, hat: true)
-            
-            ciContext.drawImage(hattImage,
-                                inRect: CGRect(x: 0, y: 0,
-                                    width: imageView.drawableWidth,
-                                    height: imageView.drawableHeight),
-                                fromRect: hattImage.extent)
-        }
- */
     }
 }
-
 
 
 
