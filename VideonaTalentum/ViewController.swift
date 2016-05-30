@@ -334,18 +334,26 @@ class ViewController: UIViewController {
                 let halfEyeWidth = eyeballImage.extent.width / 2
                 let halfEyeHeight = eyeballImage.extent.height / 2
             
-            
+                let scale = newFeature!.bounds.width/(eyeballImage.extent.width*4)
+                let scale2 = newFeature!.bounds.height/(eyeballImage.extent.height*4)
+                
                 
                 let rightEyePosition = CGAffineTransformMakeTranslation(newFeature!.rightEyePosition.x - halfEyeWidth, newFeature!.rightEyePosition.y - halfEyeHeight)
                 
                 let leftEyePosition = CGAffineTransformMakeTranslation(newFeature!.leftEyePosition.x - halfEyeWidth, newFeature!.leftEyePosition.y - halfEyeHeight)
                 
+                
+                let eyerightScaledPosition = CGAffineTransformScale(rightEyePosition, scale,scale2)
+                
+                let eyeleftScaledPosition = CGAffineTransformScale(leftEyePosition, scale,scale2)
+               
+                
                 transformFilter.setValue(eyeballImage, forKey: "inputImage")
-                transformFilter.setValue(NSValue(CGAffineTransform: rightEyePosition), forKey: "inputTransform")
+                transformFilter.setValue(NSValue(CGAffineTransform: eyerightScaledPosition), forKey: "inputTransform")
                 
                 
                 transformFilter1.setValue(eyeballImage, forKey: "inputImage")
-                transformFilter1.setValue(NSValue(CGAffineTransform: leftEyePosition), forKey: "inputTransform")
+                transformFilter1.setValue(NSValue(CGAffineTransform: eyeleftScaledPosition), forKey: "inputTransform")
                 
                 let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
             
@@ -415,7 +423,7 @@ class ViewController: UIViewController {
                 let halfMoustacheWidth = moustacheImage2.extent.width / 7.5
                 let halfMoustacheheight = moustacheImage2.extent.height / 15
                 
-                
+              
                 let moustachePosition = CGAffineTransformMakeTranslation(newFeature!.bounds.midX - halfMoustacheWidth, newFeature!.mouthPosition.y - halfMoustacheheight)
                 
                 let moustacheScaledPosition = CGAffineTransformScale(moustachePosition, 0.3,0.3)
@@ -427,9 +435,42 @@ class ViewController: UIViewController {
                 let moustacheAngle = CGAffineTransformRotate(moustacheScaledPosition, -angleRadians)
 
                 
-                
                 transformFilter.setValue(moustacheImage2, forKey: "inputImage")
                 transformFilter.setValue(NSValue(CGAffineTransform: moustacheAngle), forKey: "inputTransform")
+                
+                
+                let transformResult = transformFilter.valueForKey("outputImage") as! CIImage
+                
+                compositingFilter.setValue(finalImage, forKey: kCIInputBackgroundImageKey)
+                compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
+                
+                finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
+            }
+            if(isMouth){
+                
+                
+                let halfMouthWidth = mouthballImage.extent.width / 2
+                let halfMouthHeight = mouthballImage.extent.height / 2
+                
+                let scaleWidth = newFeature!.bounds.width/(mouthballImage.extent.width*2)
+                let scaleHeight = newFeature!.bounds.height/(mouthballImage.extent.width*2)
+
+                
+                
+                let mouthPosition = CGAffineTransformMakeTranslation(newFeature!.mouthPosition.x - halfMouthWidth, newFeature!.mouthPosition.y - halfMouthHeight)
+                
+                let mouthScaledPosition = CGAffineTransformScale(mouthPosition, scaleWidth,scaleHeight)
+                
+                
+                let myCGFloat = CGFloat(newFeature!.faceAngle)
+                let myPIFloat = CGFloat(2*M_PI)
+                let angleRadians = myCGFloat*myPIFloat / 360
+                let mouthAngle = CGAffineTransformRotate(mouthScaledPosition, -angleRadians)
+                
+                
+                
+                transformFilter.setValue(mouthballImage, forKey: "inputImage")
+                transformFilter.setValue(NSValue(CGAffineTransform: mouthAngle), forKey: "inputTransform")
                 
                 
                 
@@ -439,19 +480,11 @@ class ViewController: UIViewController {
                 compositingFilter.setValue(transformResult, forKey: kCIInputImageKey)
                 
                 finalImage = compositingFilter.valueForKey("outputImage") as! CIImage
-                
-                
             }
 
         }
-
         return finalImage
-
-    
     }
-    
-
-    
     
     func noneImag2(cameraImage: CIImage, backgroundImage: CIImage, features : [CIFeature])->CIImage {
     
@@ -525,8 +558,6 @@ class ViewController: UIViewController {
                 finalImage = compositingFilter1.valueForKey("outputImage") as! CIImage
 
         */
-  
-        
         
     }
 
