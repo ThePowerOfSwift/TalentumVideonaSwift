@@ -41,6 +41,7 @@ public class ActionButton: NSObject {
     
     /// The button's background color : set default color
     public var backgroundColorSelected: UIColor = UIColor(red: 238.0/255.0, green: 130.0/255.0, blue: 34.0/255.0, alpha:1.0)
+
     
     /// Indicates if the buttons is active (showing its items)
     private(set) public var active: Bool = false
@@ -102,14 +103,18 @@ public class ActionButton: NSObject {
         self.parentView.addSubview(self.floatButton)
 
         self.contentView = UIView(frame: bounds)
-        self.blurVisualEffect = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight))
-        self.blurVisualEffect.frame = self.contentView.frame
-        self.contentView.addSubview(self.blurVisualEffect)
+//        self.blurVisualEffect = UIVisualEffectView(effect: UIBlurEffect(style: .ExtraLight))
+//        self.blurVisualEffect.frame = self.contentView.frame
+//        self.contentView.addSubview(self.blurVisualEffect)
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(ActionButton.backgroundTapped(_:)))
         self.contentView.addGestureRecognizer(tap)
         
         self.installConstraints()
+    }
+    
+    public func reloadSubViews() {        
+        placeButtonItems()
     }
     
     required public init(coder aDecoder: NSCoder) {
